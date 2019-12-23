@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/blog/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/blog/img/logo_miccall.png">
+	
+			
+    <title>
+    个人空间
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/blog/css/mic_main.css" />
+    <link rel="stylesheet" href="/blog/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/blog/css/noscript.css" />
+    </noscript>
+
+			    <script src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.scrollex.min.js"></script>
+    <script src="/blog/js/jquery.scrolly.min.js"></script>
+    <script src="/blog/js/skel.min.js"></script>
+    <script src="/blog/js/util.js"></script>
+    <script src="/blog/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/blog/" class="logo">GUAONG</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/blog/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/blog/categories/android/">android</a></li><li><a class="category-link" href="/blog/categories/daily/">daily</a></li><li><a class="category-link" href="/blog/categories/technology/">technology</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/guaong" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1529602405285&amp;di=53a09c4fc93a37f506ab2a08db405b3c&amp;imgtype=0&amp;src=http%3A%2F%2Fimg3.iqilu.com%2Fdata%2Fattachment%2Fforum%2F201308%2F21%2F174752hf7ucz3mh9nnyvjm.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >关于在sts中新建spring-root项目</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <font face="黑体" size="3"><br>    超级无敌操蛋的sts，啊啊啊啊啊！！！！！！！！！！<br><br>    <hr><br>    经过一下午琢磨，终于，终于还是没有完成，不过也解决啦一部分问题<br><br>    根据spring官网给出的文档<br>    <font color="#ff3366" size="">第一步</font><br>    检测是否安装jdk<br>    <font color="#ff9966">$ java -version</font><br><br>    <font color="#ff3366">第二步</font><br>    maven安装(直接从网上下载),下载之后解压<br><br>    <font color="#ff3366">第三步</font><br>    配置环境变量<br>    path里面添加<font color="#ff9966">%M2_HOME%\bin</font><br>    新建<font color="#ff9966">M2_HOME</font>,添加<font color="#ff9966">E:\apache-maven-3.5.0</font><br><br>    <font color="#ff3366">第四步</font><br>    控制台输入<font color="#ff9966">$ mvn -v</font>检测是否安装成功<br><br>    <font color="#ff3366">第五步</font><br>    新建项目spring starter project<br><br>    <font color="#ff3366">第六步</font><br>    之后将pom.xml文件与官网给的doc比较，大多数都自动添加了,只有:<br>    <font color="#ff9966"><br>    &lt; dependencies&gt;<br>    &lt; dependency&gt;<br>        &lt; groupId&gt; org.springframework.boot &lt;/ groupId&gt;<br>        &lt; artifactId&gt; spring-boot-starter-web &lt;/ artifactId&gt;<br>    &lt;/ dependency&gt;<br>    &lt;/ dependencies&gt;</font>没有添加,当添加之后会下载一些东西,我猜大概是org.spring.web包,因为之前没有该报,但是添加这段之后运行程序出现异常，大致是有重复包，导致项目依赖的包与拥有的包不符,之前没有添加这段，程序一直是一运行就停止<br><br>    <font color="#ff3366">最后</font><br>    运行，至少根据以上步骤，服务器可以一直启动，不会自动停止<br><br>    <font color="#ff3366">话外</font><br>    其实maven可以改变，设置window首选项,将maven中useinterface中的文件位置改变,粗略一提，原本文件在user/.m2/respxxx下，将位置改变，因为该文件下将下载jar包.<br><br>    <hr><br>    未完待续，我将继续解决网页404问题…<br><br>    <font color="#ff3366">最后最后一步</font><br>    将<font color="#ff9966">@SpringBootApplication</font>改为<font color="#ff9966">@RestController和@EnableAutoConfiguration</font>然后运行就没有问题了<br><br>    <hr><br>    至此简单的新建spring boot并运行就完成了!<br></font>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://guaong.github.io/blog/2017/05/27/关于在sts中新建spring-root项目/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://guaong.github.io/blog/2017/05/27/关于在sts中新建spring-root项目/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
