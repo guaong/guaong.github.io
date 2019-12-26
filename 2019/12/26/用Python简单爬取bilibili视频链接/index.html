@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="用Python实现对bilibili网站信息爬取:首先，需要用chromedriver来做模拟访问的浏览器然后，下载selenium解析网页代码如下：
+12345678910111213141516171819from selenium import webdriverdriverPath &amp;#x3"/>
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="用Python简单爬取bilibili视频链接"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="用Python实现对bilibili网站信息爬取:首先，需要用chromedriver来做模拟访问的浏览器然后，下载selenium解析网页代码如下：
+12345678910111213141516171819from selenium import webdriverdriverPath &amp;#x3"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>Archives - Guaong</title>
+    <title>用Python简单爬取bilibili视频链接 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,62 +161,78 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>用Python简单爬取bilibili视频链接</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-12-26
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/python/">#python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2019/12/26/用Python简单爬取bilibili视频链接/">
-        <h1 class="post-title archive">
-            用Python简单爬取bilibili视频链接
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-12-26
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2019/12/23/新开始/">
-        <h1 class="post-title archive">
-            新开始
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-12-23
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>用Python实现对bilibili网站信息爬取:<br><br>首先，需要用<a href="http://chromedriver.chromium.org/" target="_blank" rel="noopener"><font color="#227d51">chromedriver</font></a>来做模拟访问的浏览器<br><br>然后，下载<a href="https://pypi.org/project/selenium/" target="_blank" rel="noopener"><font color="#227d51">selenium</font></a>解析网页<br><br>代码如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">driverPath &#x3D; &quot;E:\Config\chromedriver.exe&quot;</span><br><span class="line">url &#x3D; &quot;https:&#x2F;&#x2F;m.bilibili.com&#x2F;video&#x2F;av67456873?redirectFrom&#x3D;h5&quot;</span><br><span class="line"></span><br><span class="line">option &#x3D; webdriver.ChromeOptions()</span><br><span class="line"># 设置chrome不显示</span><br><span class="line">option.add_argument(&quot;--headless&quot;)</span><br><span class="line"># 设置chrome为手机</span><br><span class="line">mobileEmulation &#x3D; &#123;&quot;deviceName&quot;:&quot;Galaxy S5&quot;&#125;</span><br><span class="line">option.add_experimental_option(&quot;mobileEmulation&quot;,mobileEmulation)</span><br><span class="line"># 打开设备</span><br><span class="line">driver &#x3D; webdriver.Chrome(driverPath,chrome_options&#x3D;option)</span><br><span class="line"># 连接网站</span><br><span class="line">driver.get(url)</span><br><span class="line"># 通过tag_name找到视频</span><br><span class="line">videoUrl &#x3D; driver.find_element_by_tag_name(&quot;source&quot;)</span><br><span class="line">print videoUrl.get_attribute(&quot;src&quot;)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<br>
+<hr>
+android不能使用jsoup + selenium，因此放弃使用android<br>
+selenium+chromdriver需要服务器支持<br>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
