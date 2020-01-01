@@ -13,6 +13,12 @@
     
 
     
+        <meta name="description" content="用Python连接数据库:首先，使用了pyMySQL
+1pip3 install pymysql
+
+然后，就可以连接MySQL数据库了
+123456con &amp;#x3D; pymysql.connect(host&amp;#x3D;&amp;quot;localhost&amp;quot;, user&amp;#x3D;&amp;quot;"/>
+    
 
     <!--Author-->
     
@@ -21,10 +27,16 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="用Python简单连接MySQL数据库"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="用Python连接数据库:首先，使用了pyMySQL
+1pip3 install pymysql
+
+然后，就可以连接MySQL数据库了
+123456con &amp;#x3D; pymysql.connect(host&amp;#x3D;&amp;quot;localhost&amp;quot;, user&amp;#x3D;&amp;quot;"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +44,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +63,7 @@
 
     <!-- Title -->
     
-    <title>python - Guaong</title>
+    <title>用Python简单连接MySQL数据库 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,62 +167,76 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>#python</h1>
+                <div class="post-heading">
+                    <h1>用Python简单连接MySQL数据库</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-01-01
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/python/">#python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/01/用Python简单连接MySQL数据库/">
-        <h1 class="post-title archive">
-            用Python简单连接MySQL数据库
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-01-01
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2019/12/26/用Python简单爬取bilibili视频链接/">
-        <h1 class="post-title archive">
-            用Python简单爬取bilibili视频链接
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-12-26
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>用Python连接数据库:<br><br>首先，使用了pyMySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymysql</span><br></pre></td></tr></table></figure>
+<br>
+然后，就可以连接MySQL数据库了
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">con &#x3D; pymysql.connect(host&#x3D;&quot;localhost&quot;, user&#x3D;&quot;用户名&quot;, password&#x3D;&quot;密码&quot;, database&#x3D;&quot;数据库名&quot;)</span><br><span class="line">cursor &#x3D; con.cursor()</span><br><span class="line">#cursor.execute(&quot;insert into xiapuxiapu.link (id, url) values (4, &#39;wwww&#39;)&quot;)</span><br><span class="line">con.commit()</span><br><span class="line">cursor.close()</span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
