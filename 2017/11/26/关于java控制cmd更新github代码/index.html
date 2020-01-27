@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="java控制cmd有两种方式：1.直接运行批处理文件2.运行cmd命令由于第二种没有找到合适的可以连续执行cmd命令的方式，所以只对第一种进行讲解1.首先新建一个批处理文件2.在里面写入指令(一个指令一行)例如：C:cd \Users\关桐\Documents\GitHub\homegit stat"/>
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="关于java控制cmd更新github代码"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="java控制cmd有两种方式：1.直接运行批处理文件2.运行cmd命令由于第二种没有找到合适的可以连续执行cmd命令的方式，所以只对第一种进行讲解1.首先新建一个批处理文件2.在里面写入指令(一个指令一行)例如：C:cd \Users\关桐\Documents\GitHub\homegit stat"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Android - Guaong</title>
+    <title>关于java控制cmd更新github代码 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,62 +159,73 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>#Android</h1>
+                <div class="post-heading">
+                    <h1>关于java控制cmd更新github代码</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-11-26
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/工具/">#工具</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/10/关于android/">
-        <h1 class="post-title archive">
-            关于android
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-01-10
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2017/06/15/安卓开发问题总结/">
-        <h1 class="post-title archive">
-            安卓开发问题总结
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-15
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><font face="黑体" size="3"><br><h2>java控制cmd</h2><br>有两种方式：<br>1.直接运行批处理文件<br>2.运行cmd命令<br><br><br>由于第二种没有找到合适的可以连续执行cmd命令的方式，所以只对第一种进行讲解<br>1.首先新建一个批处理文件<br>2.在里面写入指令(一个指令一行)<br>例如：<br><pre><br>C:<br>cd \Users\关桐\Documents\GitHub\home<br>git status<br>git add *<br>git commit -m 00<br>git pull<br>git push origin master<br></pre><br>3.值得注意的是跳转磁盘不能用cd，而打开文件要用cd，以上就是标题的完整代码<br>4.还有运行bat的代码,这是两种方式，第一种是会弹出黑框，第二种不会<br><pre><br>Desktop.getDesktop().open(new File(“C:\Users\关桐\Documents\GitHub\post.bat”));<br>final Process r = Runtime.getRuntime().exec(“C:/Users/关桐/Documents/GitHub/post.bat”);<br></pre><br></font></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="持续更新ing…写在前面，作为一个安卓开发的新人，在开发过程中会遇到各种问题，将各种问题的解决办法记录下来，以便日后回忆复习使用。为什么要写这个笔记呢，是因为在刚刚接触安卓时打算写一个音乐播器，遇到问题在网上百度，然而很多的问题解释都是错误或者过时的，因此非常不方便（在此不提Google）1、关于g"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Guaong"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="安卓开发问题总结"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="持续更新ing…写在前面，作为一个安卓开发的新人，在开发过程中会遇到各种问题，将各种问题的解决办法记录下来，以便日后回忆复习使用。为什么要写这个笔记呢，是因为在刚刚接触安卓时打算写一个音乐播器，遇到问题在网上百度，然而很多的问题解释都是错误或者过时的，因此非常不方便（在此不提Google）1、关于g"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Guaong"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://guaong.github.io/guaong.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://guaong.github.io/guaong.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>安卓开发问题总结 - Guaong</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/guaong.github.io/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/guaong.github.io/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/guaong.github.io/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>安卓开发问题总结</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-06-15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/Android/">#Android</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><font size="3" face="黑体"><br>持续更新ing…<br><hr><br>写在前面，作为一个安卓开发的新人，在开发过程中会遇到各种问题，将各种问题的解决办法记录下来，以便日后回忆复习使用。为什么要写这个笔记呢，是因为在刚刚接触安卓时打算写一个音乐播器，遇到问题在网上百度，然而很多的问题解释都是错误或者过时的，因此非常不方便（在此不提Google）<br><hr><br>1、关于getDrawable（int）方法过时<br>  在新的api中，安卓放弃了该方法，而使用ContextCompat.getDrawable(Context,int)方法代替<br><br>2、关于Context的使用<br>  在安卓中有getBaseContext方法，用一个android sdk工程师的话，getBaseContext方法很少有用到而是使用到了getApplicationContext方法<br><br>3、关于OnClickLisener和OnTouchListener<br>  前者是点击，后者是接触，通过音乐播放器实例，点击播放按钮OnClickListener效果是按钮暂停图标改为播放,OnTouchListener效果是点击不放手按钮图片改为播放，松手后又改为暂停<br><br>4、关于去掉title<br>  通过百度发现很多老的方法修改AndroidManifest.xml中的theme属性，然而没有用，并且会导致程序闪退，新方法是在java代码中加入ActionBar actionBar=getSupportActionBar();actionBar.hide();当然这      里还有一个警告关于hide方法会有空指针异常但是不需要抛出，因此此处可以做修改增加一个判断if(actionBar != null)再去执行actionBar.hide()方法。<br><br>5、关于OnCompletionListener的使用<br>  该接口中必须覆写onCompletion方法，该接口用于监听媒体事件的完成，根据正常情况应该监听一下就好，然而在我实现音乐顺序播放时只会监听create方法中传递的第一个音乐对象，上百度没有出    现类似问题，然而我用了一个就算不错误也非常不好的方法，将监听递归实现<br><br>6、关于测试机红米3s，api23测试出现E/ExtMediaPlayer-JNI: env-&gt;IsInstanceOf fails和E/MediaPlayer- JNI: JNIMediaPlayerFactory: bIsQCMediaPlayent 0的情况<br>  在使用genymotion提供的  某模拟机 api23时不会出现相应问题，估计是小米自身的事情吧<br><br>7、关于onCreate中开头两句super.onCreate和setContentView<br>   这两句话之前不能有任何执行语句出现，否则会出现各种问题<br><br>8、关于修改statusbar<br>   <pre>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) {<br>        Window window = getWindow();<br>        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);<br>        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |<br>        View.SYSTEM_UI_FLAG_LAYOUT_STABLE);<br>        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);<br>        window.setStatusBarColor(Color.TRANSPARENT);<br>      }</pre><br><br>9、关于自定义线程修改ui<br>   在安卓中ui主线程才可以对组件样式进行修改，因此若有其他线程想要对组件进行修改就需要用到一个Message类来发送接收消息，建立联系需要使用Handler，Message，以及自己的线程类，将自    己的线程类中在需要的位置加上Message message = new Message();message.arg1 = 1; 实例化线程类名.sendMessage(message);重点是后两句，然后在hander的handlerMessage方法中使用if（msg.arg1）来判断接收什么的消息，这样就可以了<br><br>10、关于rawListener类<br>   其中该监听类中的方法raw方法其中就是控制重画<br><br>11、关于ListView类中item的监听方式和关于ArrayAdapter适配器的使用<br>   在ListView中item的点击判断是依靠item所在的序号决定的，可在OnItemClickListener中监听，对于样式的修改可以在ArrayAdapter中进行修改getView结合相关xml进行修改<br><br>12、关于在开发中状态的修改<br>   在开发中经常碰到状态改变，很多时候会忘记完成后对状态的修改<br><br>13、关于安卓开发工具android studio中第一次安装产生Unable to access Android SDK add-on list问题的解决<br>   解决方法很简单，在studio中有一步需要添加本地sdk路径，也就是studio自带的sdk路径，这一步会出现如果路径填写不对会出现警告，在网上搜索也发现类似问题，然而解决方案千篇一律都是通过在C:\ProgramFiles\Android\Android Studio\bin\idea.properties最后面添加上这句话disable.android.first.run=true进行修改，然而在win10的c盘中该文件不可以被修改，因为受管理权限的影响<br><br>14、关于Android studio中建立虚拟机时出现没有因特尔haxm的情况<br>   在android sdk message 中下载inter haxm即可<br><br>15、关于进入 BIOS中的方法<br>   thinkpad 使用f1 联想ideapad 可使用一个重置的一个内嵌按钮进入<br><br>16、关于android获取sd卡权限<br>  该语句用于application之前<br>   <pre>&lt; uses-permission android:name=”android.permission.WRITE_EXTERNAL_STORAGE” /&gt;<br>    <!--暂时不知道有什么用，该权限用于安装卸载文件系统--><br>    &lt; uses-permission android:name=”android.permission.MOUNT_UNMOUNT_FILESYSTEMS” /&gt;</pre><br><br>17、关于mediaplay播放本地音乐<br>   使用contentResolver = this.getContentResolver();使用内容解析器<br>Cursor cursor = contentResolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);从媒体数据库中获取指定信息<br>musicURI = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));得到音乐路径<br><br>18、关于睡前音乐项目关于listView不能播放本地音乐，发生notfoundfildexception<br> 这是一个本应该没有的错误，原因是mediaplay = MediaPlay.create(…);是正确的，而不是mediaplay.create(…);同时播放前应将之前mediap停止并重置，当然还是没有解决该异常只不过不在影响<br><br>19、关于导入recyclerview包时同步失败的问题<br>   这个问题暂时真正原因不知道，感觉和支持的最小api有关<br><br>20、关于shape的使用<br>   shape用于对边框的绘制，shape是外形的意思，在drawable中使用xml，同时shape中需要引入xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;才可以使用" target="_blank" rel="external">http://schemas.android.com/apk/res/android&quot;才可以使用</a><br>solid：实心，就是填充的意思<br>android:color指定填充的颜色<br><br>gradient：渐变<br>android:startColor和android:endColor分别为起始和结束颜色，ndroid:angle是渐变角度，必须为45的整数倍。<br>另外渐变默认的模式为android:type=”linear”，即线性渐变，可以指定渐变为径向渐变，android:type=”radial”，径向渐变需要指定半径android:gradientRadius=”50”。<br><br>stroke：描边<br>android:width=”2dp” 描边的宽度，android:color 描边的颜色。<br>我们还可以把描边弄成虚线的形式，设置方式为：<br>android:dashWidth=”5dp”<br>android:dashGap=”3dp”<br>其中android:dashWidth表示’-‘这样一个横线的宽度，android:dashGap表示之间隔开的距离。<br><br>corners：圆角<br>android:radius为角的弧度，值越大角越圆。<br>我们还可以把四个角设定成不同的角度，方法为：<br><pre>&lt; corners<br>        android:topRightRadius=”20dp”    右上角<br>        android:bottomLeftRadius=”20dp”    右下角<br>        android:topLeftRadius=”1dp”    左上角<br>        android:bottomRightRadius=”0dp”    左下角<br> /&gt;</pre><br>这里有个地方需要注意，bottomLeftRadius是右下角，而不是左下角，这个有点郁闷，不过不影响使用，记得别搞错了就行。<br>还有网上看到有人说设置成0dp无效，不过我在测试中发现是可以的，我用的是2.2，可能修复了这个问题吧，如果无效的话那就只能设成1dp了。<br><br>padding：间隔<br>这个就不用多说了，XML布局文件中经常用到。<br><br>21、关于使用ps绘制阴影背景首先话不一定要大于图片背景，否则阴影将超画布范围，将不显示<br><br>22、关于editText中密码框hint字体样式修改只有在密码框hint字体与其他字体样式不同，只需要在代码中加上（需要修改的edittext名称）.setTypeface（Typeface.DEFAULT）;typeface属性可以修改,(需要修改的edittext名称).setTransformationMethod(new PasswordTransformationMethod());<br><br>23、关于onTouchListener中onTouch方法返回值默认返回为false，在开发音乐播放器时并没有错，但是在开发chat时，出现手抬起时没有响应，返回值改为true则可以响应，具体原因未知<br><br>24、关于PagerView的使用该组件可以插入fragment，同时还可以监听变化，功能优于FrameLayout<br><br>25、关于ViewTreeObserver的使用树视图观察者，通过getViewTreeObserver方法获得实例，在chat项目中使用this.getWindow.findviewById（Window.ANDROID_CONTENT）.getViewTreeObserver获得，然后设置不同事件，使用add….可以对控件，布局大小改变，焦点改变滚动等等进行监听<br><br>26、关于使用udp跨设备通信<br>第一点是在发送和接收数据包时，字节转换字符串乱码，C/S端都使用流<br>第二点当服务器使用不同宽带ip改变<br><br>27、关于onMeasure（）<br>该方法执行两次，分别测量宽和高<br><br>28、关于android studio提示com.intellij.ide.plugins.PluginManager$StartupAbortedException: Fatal error initializing ‘com.intellij.designer.DesignerToolWindowManager’<br>解决办法，根据android studio的提示，将jdk版本更新到合适的版本即可<br><br>29、关于android app退出时要关闭的东西<br>要将所有线程全部关闭，避免退出程序时的意外崩溃，在开发第三版gesturemusic时遇到三星盖乐世s8手机双击back退出时程序崩溃的情况，原因是由于三星手机在退出后不会直接完全关闭app，导致service在退出后再次启动，致使程序崩溃。因此不要仅仅局限于在onDestroy中关闭service<br></font></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Guaong<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="写在前面，该静态博客使用最常见的方法，即hexo+github page。    作为一个新手，在经历了两次失败之后终于成功。本文主要记录如何搭建以及在搭建过程中遇到的问题如何解决。正文：    准备工作：首先需要node.js，Git 至于下载的方式自行查找    当准备好上述两个后，就可以准备下"/>
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="搭建静态博客"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="写在前面，该静态博客使用最常见的方法，即hexo+github page。    作为一个新手，在经历了两次失败之后终于成功。本文主要记录如何搭建以及在搭建过程中遇到的问题如何解决。正文：    准备工作：首先需要node.js，Git 至于下载的方式自行查找    当准备好上述两个后，就可以准备下"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Android - Guaong</title>
+    <title>搭建静态博客 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,62 +159,73 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>#Android</h1>
+                <div class="post-heading">
+                    <h1>搭建静态博客</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-05-11
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/工具/">#工具</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/10/关于android/">
-        <h1 class="post-title archive">
-            关于android
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-01-10
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/guaong.github.io/2017/06/15/安卓开发问题总结/">
-        <h1 class="post-title archive">
-            安卓开发问题总结
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-15
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><font face="黑体" size="3"><br>写在前面，该静态博客使用最常见的方法，即hexo+github page。    作为一个新手，在经历了两次失败之后终于成功。<br>本文主要记录如何搭建以及在搭建过程中遇到的问题如何解决。<br><br>正文：<br>    准备工作：首先需要node.js，Git 至于下载的方式自行查找<br>    当准备好上述两个后，就可以准备下载hexo了<br>    安装hexo可以通过Git或者window自带的cmd输入：<br>        <font color="#FF7F50">$ npm install -g hexo-cli</font><br>    我没有使用Git，我用的是cmd<br>    等待安装完成后开始建站<br>        1.新建一个文件夹，例“test”<br>        2.鼠标右键“test”文件夹，打开git bash（该目的只是打开bash目录直接是你创建的位置）<br>        3.输入：<br>            <font color="#FF7F50">$ hexo init test</font>test为你创建的文件夹<br>        4.执行：<br>            <font color="#FF7F50">$ npm install</font><br>    此时hexo暂时告一段落<br>    准备github page<br>        5.new repository<br>        6.repository name，名字一定要是xx.github.io格式<br>        7.勾选Initialize this repository with a README<br>        8.create repository<br>    项目创建完成<br>        9.进入项目找到settings，点击进入<br>        10.找到Source 默认none，选择master branch，然后save。如果发现不能勾选master branch，参见第7步，没有勾选<br>    将hexo部署到github<br>        11.打开刚刚创建的test文件夹，找到_config.yml，打开<br>        12.找到其中的deploy，type设为<font color="#FF7F50">git</font><br>        13.repository设为<font color="#FF7F50"><a href="mailto:git@github.com">git@github.com</a>:你的github名字/xx.github.io.git</font>注意如果你不知道repository该填什么，打开github找到该仓库，查找ssh<br>        14.还是在_config.yml中，找到#URL<br>        15.url填写<font color="#FF7F50">你创建的仓库名即xx.github.io/xx.github.io</font>注意，我不知道为什么要这么写，但是之前测试中没有写后面重复的那一编不显示主题,注意如果你也出现仓库网址为aa.github.io/xx.github.io的话url应填写aa.github.io/xx.github.io/xx.github.io<br>        16.root填写<font color="#FF7F50">xx.github.io</font><br>        17.在Git中输入<font color="#FF7F50">$ hexo deploy</font>deploy可用d代替,若此处出错有可能是ssh key的事情，输入<font color="#FF7F50">$ ssh-keygen -t rsa -C “github邮箱”</font>一直回车最后会出现key，复制下来，打开github，修改test仓库的ssh<br>        18.你可以通过Git输入<font color="#FF7F50">$ hexo server</font>在localhost:4000预览样式主题，ctrl+c停止server<br>        19.接着输入<font color="#FF7F50">$ hexo g</font><br>        20.<font color="#FF7F50">$ hexo d</font>成功后打开连接即可看到效果<br>    关于主题修改<br>        21.从hexo官网下载主题,修改_config.yml文件中theme，将默认的文件夹名字改为你下载的主题文件夹名字即可。<br>    关于信息更新<br>        22.每次都要执行<font color="#FF7F50">$ hexo clean</font><font color="#FF7F50">$ hexo g</font><font color="#FF7F50">$ hexo d</font>这三步用于更新网页内容<br>    关于新建博客<br>        23.Git中输入<font color="#FF7F50">$ hexo new 文件名</font>创建，在test/source/_posts中找到文件名.md,打开修改即可,如何输入自行查询markdown<br></font></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
