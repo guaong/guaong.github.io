@@ -13,7 +13,11 @@
     
 
     
-        <meta name="description" content="1.Android中Service和多个Activity通信Android中startService后就会一直运行，不会因为Activity的消亡没停止多个Activity可以执行bindService共同绑定一个Service，操作同一个Binder第一个Activity中绑定Service，获得"/>
+        <meta name="description" content="前言：笔记根据《深入理解android卷3》记录
+
+1.Java层中的Binder分析
+1.1.初始化Java层Binder框架
+在native层使用register_android_os_Binder(JNIEnv* env)方法构建Java Binder和Native Binder的交互,在该方"/>
     
 
     <!--Author-->
@@ -23,12 +27,16 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="关于android"/>
+        <meta property="og:title" content="Android中的Binder"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1.Android中Service和多个Activity通信Android中startService后就会一直运行，不会因为Activity的消亡没停止多个Activity可以执行bindService共同绑定一个Service，操作同一个Binder第一个Activity中绑定Service，获得"/>
+        <meta property="og:description" content="前言：笔记根据《深入理解android卷3》记录
+
+1.Java层中的Binder分析
+1.1.初始化Java层Binder框架
+在native层使用register_android_os_Binder(JNIEnv* env)方法构建Java Binder和Native Binder的交互,在该方"/>
     
 
     <!--Open Graph Site Name-->
@@ -55,7 +63,7 @@
 
     <!-- Title -->
     
-    <title>关于android - Guaong</title>
+    <title>Android中的Binder - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -167,13 +175,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>关于android</h1>
+                    <h1>Android中的Binder</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2020-01-10
+                            2020-01-28
                         
                     </span>
                 </div>
@@ -209,24 +217,18 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><font color="#FFA07A">1.Android中Service和多个Activity通信</font><br><br>Android中<font color="#DAA520">startService</font>后就会一直运行，不会因为Activity的消亡没停止<br><br>多个Activity可以执行<font color="#DAA520">bindService</font>共同绑定一个Service，操作同一个Binder<br><br>第一个Activity中绑定Service，获得IBinder，启动Service：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">private void conService()&#123;</span><br><span class="line">        serviceConnection &#x3D; new ServiceConnection() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onServiceConnected(ComponentName name, IBinder service) &#123;</span><br><span class="line">                musicPlayerBinder &#x3D; (MusicPlayerBinder) service;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onServiceDisconnected(ComponentName name) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void startService()&#123;</span><br><span class="line">        Intent intent &#x3D; new Intent(MainActivity.this, MusicService.class);</span><br><span class="line">        intent.putParcelableArrayListExtra(&quot;musicList&quot;, musicList);</span><br><span class="line">        startService(intent);</span><br><span class="line">        bindService(intent, serviceConnection, BIND_AUTO_CREATE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-第二个Activity中绑定Service，获得IBinder：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private void conService()&#123;</span><br><span class="line">        serviceConnection &#x3D; new ServiceConnection() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onServiceConnected(ComponentName name, IBinder service) &#123;</span><br><span class="line">                musicPlayerBinder &#x3D; (MusicPlayerBinder) service;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            @Override</span><br><span class="line">            public void onServiceDisconnected(ComponentName name) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void bindService()&#123;</span><br><span class="line">        Intent intent &#x3D; new Intent(ListActivity.this, MusicService.class);</span><br><span class="line">        bindService(intent, serviceConnection, BIND_AUTO_CREATE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-这样就可以使Activity1和Activity2同时对IBinder进行操作<br><br>
-<font color="#FFA07A">2.在LinearLayout中队组件设置权重后将宽或者高设为0</font><br>
-原因是如果将组件的宽/高设置为wrap_content，会对该组件所要占据的空间做一次没有用的计算，所以设置成0去避免这种情况<br>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;EditText</span><br><span class="line">    android:layout_weight&#x3D;&quot;1&quot;</span><br><span class="line">    android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;wrap_content&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<br><br>
-<font color="#FFA07A">3.把按钮监听的方法写在xml中</font><br>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">    android:layout_width&#x3D;&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">    ...</span><br><span class="line">    android:onClick&#x3D;&quot;click&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<br><br>
-<font color="#FFA07A">4.关于Intent的putExtra()方法中的message</font><br>
-message中的信息最好使用应用的包名作为前缀，这样可以在跨程序使用时也保证message值的唯一
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final static String MESSAGE &#x3D; &quot;io.guaong.xxx&quot;</span><br><span class="line">Intent intent &#x3D; new Intent(this, OtherActivity.class);</span><br><span class="line">intent.putExtra(MESSAGE, &quot;XXX&quot;);</span><br></pre></td></tr></table></figure>
-<br>
+                <p>前言：笔记根据《深入理解android卷3》记录<br></p>
+<hr>
+<font color="#FFA07A">1.Java层中的Binder分析</font><br><br>
+1.1.初始化Java层Binder框架<br>
+在native层使用register_android_os_Binder(JNIEnv* env)方法构建Java Binder和Native Binder的交互,在该方法中对Binder，BinderInternal ，BinderProxy三个类初始化。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int register_android_os_Binder(JNIEnv* env)&#123; &#x2F;&#x2F;JNI是java native interface</span><br><span class="line">	if(int_register_android_os_Binder(env) &lt; 0)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	if(int_register_android_os_BinderInternal(env) &lt; 0)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	if(int_register_android_os_BinderProxy(env) &lt; 0)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static int int_register_android_os_Binder(JNIEnv* env)&#123;</span><br><span class="line">	&#x2F;&#x2F;gBinderOffsets是静态类，拥有保存Binder类中一些在JNI层中的信息</span><br><span class="line">	gBinderOffsets.mClass &#x3D; (jclass)env-&gt;NewGlobalRef(clazz);</span><br><span class="line">	gBinderOffsets.mExecTransact &#x3D; env-&gt;GetMethodID(clazz, &quot;execTransact&quot;, &quot;(IIII)Z&quot;);</span><br><span class="line">	gBinderOffsets.mObject &#x3D; env-&gt;GetFieldID(clazz, &quot;mObject&quot;, &quot;I&quot;);</span><br><span class="line">	return AndroidRuntime::registerNativeMethods(env, kBinderPathName, gBinderMethods, NELEM(gBinderMethods));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static int int_register_android_os_BinderInternal(JNIEnv* env)&#123;</span><br><span class="line">	&#x2F;&#x2F;代码类似int_register_android_os_Binder</span><br><span class="line">	......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static int int_register_android_os_BinderProxy(JNIEnv* env)&#123;</span><br><span class="line">	&#x2F;&#x2F;与上面方法有所不同,还要获取WeakReference和Error类的信息</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在初始化时获取MethodID,FiledID是为了节约在Binder频繁调用过程中获取这些信息的时间<br><br><br>1.2.Java层Binder工作原理<br></p>
+
 
                 
             </div>
