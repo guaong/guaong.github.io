@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="前言：笔记根据《深入理解android内核设计思想》记录
+
+1.Android进程和线程
+Android中的四大组件并不是程序(进程)的全部,而是一部分.
+应用程序启动后将创建ActivityThread主线程.
+同一个包的组件在相同的进程空间中.
+不同包的可以通过一定方式运行在同一进程空间中.
+一"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Guaong"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android进程(线程)管理"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="前言：笔记根据《深入理解android内核设计思想》记录
+
+1.Android进程和线程
+Android中的四大组件并不是程序(进程)的全部,而是一部分.
+应用程序启动后将创建ActivityThread主线程.
+同一个包的组件在相同的进程空间中.
+不同包的可以通过一定方式运行在同一进程空间中.
+一"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Guaong"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://guaong.github.io/guaong.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://guaong.github.io/guaong.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Android进程(线程)管理 - Guaong</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/guaong.github.io/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/guaong.github.io/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/guaong.github.io/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/guaong" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Android进程(线程)管理</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-01-30
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/Android/">#Android</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>前言：笔记根据《深入理解android内核设计思想》记录<br></p>
+<hr>
+<h1><font color="#FFA07A">1.Android进程和线程</font></h1><br><br>
+Android中的四大组件并不是程序(进程)的全部,而是一部分.<br>
+应用程序启动后将创建ActivityThread主线程.<br>
+同一个包的组件在相同的进程空间中.<br>
+不同包的可以通过一定方式运行在同一进程空间中.<br>
+一个Activity启动至少需要三个线程(一个主线程,两个Binder).<br>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public final class ActivityThread&#123;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;在main()中设置一次</span><br><span class="line">	static volatile Handler sMainThreadHandler;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">        ......</span><br><span class="line">        Looper.prepareMainLooper();</span><br><span class="line">        ......</span><br><span class="line">        ActivityThread thread &#x3D; new ActivityThread();</span><br><span class="line">        thread.attach(false, startSeq);</span><br><span class="line"></span><br><span class="line">        if (sMainThreadHandler &#x3D;&#x3D; null) &#123;</span><br><span class="line">            sMainThreadHandler &#x3D; thread.getHandler();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (false) &#123;</span><br><span class="line">            Looper.myLooper().setMessageLogging(new</span><br><span class="line">                    LogPrinter(Log.DEBUG, &quot;ActivityThread&quot;));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">     	......</span><br><span class="line">        Looper.loop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h1><font color="#FFA07A">2.Handler,MessageQueue,Runnable和Looper</font></h1><br><br>
+总述:Runnable和Message要压入MessageQueue中,在Looper循环中不断取出一个交给Handler处理事务.<br><br>
+<h2><font color="#DAA520">Handler</font></h2><br>
+首先,在继承Handler时要通过覆写handleMessage()和dispatchMessage()决定Handler要处理的事务.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Handler&#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;在这里处理系统信息</span><br><span class="line">    public void dispatchMessage(Message msg) &#123;</span><br><span class="line">        if (msg.callback !&#x3D; null) &#123;</span><br><span class="line">            handleCallback(msg);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (mCallback !&#x3D; null) &#123;</span><br><span class="line">                if (mCallback.handleMessage(msg)) &#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            handleMessage(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;子类必须实现这个来接受消息</span><br><span class="line">    public void handleMessage(Message msg) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接着,在初始化Handler对象时,会得到mLooper,mQueue和mCallback.(ps.一个Thread对应一个Looper,一个Looper对应一个MessageQueue,一个MessageQueue对应多个Message,一个Message需要一个Handler.所以Thread对应多个Handler)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class Handler&#123;</span><br><span class="line"></span><br><span class="line">	final Looper mLooper;</span><br><span class="line">    final MessageQueue mQueue;</span><br><span class="line">    final Callback mCallback;</span><br><span class="line"></span><br><span class="line">	public Handler() &#123;</span><br><span class="line">        this(null, false);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public Handler(Callback callback, boolean async) &#123;</span><br><span class="line">        if (FIND_POTENTIAL_LEAKS) &#123;</span><br><span class="line">            final Class&lt;? extends Handler&gt; klass &#x3D; getClass();</span><br><span class="line">            if ((klass.isAnonymousClass() || klass.isMemberClass() || klass.isLocalClass()) &amp;&amp;</span><br><span class="line">                    (klass.getModifiers() &amp; Modifier.STATIC) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                Log.w(TAG, &quot;The following Handler class should be static or leaks might occur: &quot; +</span><br><span class="line">                    klass.getCanonicalName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mLooper &#x3D; Looper.myLooper();</span><br><span class="line">        if (mLooper &#x3D;&#x3D; null) &#123;</span><br><span class="line">            throw new RuntimeException(</span><br><span class="line">                &quot;Can&#39;t create handler inside thread &quot; + Thread.currentThread()</span><br><span class="line">                        + &quot; that has not called Looper.prepare()&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        mQueue &#x3D; mLooper.mQueue;</span><br><span class="line">        mCallback &#x3D; callback;</span><br><span class="line">        mAsynchronous &#x3D; async;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后,就是Handler将Message或Runnable加入MessageQueue中,Runnable类型在加入队列时要先进行转换,变成Message类型.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public class Handler&#123;</span><br><span class="line">	public final boolean post(Runnable r)&#123;</span><br><span class="line">       return  sendMessageDelayed(getPostMessage(r), 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public final boolean postAtTime(Runnable r, long uptimeMillis)&#123;</span><br><span class="line">        return sendMessageAtTime(getPostMessage(r), uptimeMillis);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public final boolean postDelayed(Runnable r, Object token, long delayMillis)&#123;</span><br><span class="line">        return sendMessageDelayed(getPostMessage(r, token), delayMillis);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public final boolean postAtFrontOfQueue(Runnable r)&#123;</span><br><span class="line">        return sendMessageAtFrontOfQueue(getPostMessage(r));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public final boolean sendMessage(Message msg)&#123;</span><br><span class="line">        return sendMessageDelayed(msg, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public final boolean sendMessageDelayed(Message msg, long delayMillis)&#123;</span><br><span class="line">        if (delayMillis &lt; 0) &#123;</span><br><span class="line">            delayMillis &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return sendMessageAtTime(msg, SystemClock.uptimeMillis() + delayMillis);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean sendMessageAtTime(Message msg, long uptimeMillis) &#123;</span><br><span class="line">        MessageQueue queue &#x3D; mQueue;</span><br><span class="line">        if (queue &#x3D;&#x3D; null) &#123;</span><br><span class="line">            RuntimeException e &#x3D; new RuntimeException(</span><br><span class="line">                    this + &quot; sendMessageAtTime() called with no mQueue&quot;);</span><br><span class="line">            Log.w(&quot;Looper&quot;, e.getMessage(), e);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return enqueueMessage(queue, msg, uptimeMillis);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public final boolean sendMessageAtFrontOfQueue(Message msg) &#123;</span><br><span class="line">        MessageQueue queue &#x3D; mQueue;</span><br><span class="line">        if (queue &#x3D;&#x3D; null) &#123;</span><br><span class="line">            RuntimeException e &#x3D; new RuntimeException(</span><br><span class="line">                this + &quot; sendMessageAtTime() called with no mQueue&quot;);</span><br><span class="line">            Log.w(&quot;Looper&quot;, e.getMessage(), e);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return enqueueMessage(queue, msg, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) &#123;</span><br><span class="line">        msg.target &#x3D; this;</span><br><span class="line">        if (mAsynchronous) &#123;</span><br><span class="line">            msg.setAsynchronous(true);</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;mQueue就是queue</span><br><span class="line">        return queue.enqueueMessage(msg, uptimeMillis);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/guaong" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Guaong<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
