@@ -237,7 +237,7 @@ Android中的四大组件并不是程序(进程)的全部,而是一部分.<br>
 <h1><font color="#FFA07A">2.Handler,MessageQueue,Runnable和Looper</font></h1><br><br>
 总述:Runnable和Message要压入MessageQueue中,在Looper循环中不断取出一个交给Handler处理事务.<br>
 大致如图所示:<br>
-<img src="/guaong.github.io/guaong.github.io/2020/01/30/Android%E8%BF%9B%E7%A8%8B(%E7%BA%BF%E7%A8%8B)%E7%AE%A1%E7%90%86/01.png"><br><br>
+![流程](Android进程(线程)管理/01.png)<br><br>
 <h2><font color="#DAA520">Handler</font></h2><br>
 首先,在继承Handler时要通过覆写handleMessage()和dispatchMessage()决定Handler要处理的事务.
 
