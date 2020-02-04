@@ -220,7 +220,7 @@ binder_mma"/>
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>前言：笔记根据《深入理解android内核设计思想》记录<br></p>
-<h1><font color="#004445">1.Binder驱动任务</font></h1><br><br>
+<h1><font color="#ffd800">1.Binder驱动任务</font></h1><br><br>
 Binder驱动主要做三件事:<br>
 <h2><font color="#2c7873">binder_open()</font><br></h2><br>
 binder_open()的工作是打开/dev/binder节点,生成一个proc对象,初始化后的proc加入Binder的全局管理中<br>
@@ -229,7 +229,7 @@ binder_open()的工作是打开/dev/binder节点,生成一个proc对象,初始�
 <p><img src="https://guaong.github.io/guaong.github.io/2020/02/02/Android%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1Binder/01.png" alt="流程"></p>
 <h2><font color="#2c7873">binder_ioctl()</font><br></h2><br>
 用于向Binder读或写数据,获取Binder版本号...操作<br><br>
-<h1><font color="#004445">2.ServiceManager</font></h1><br><br>
+<h1><font color="#ffd800">2.ServiceManager</font></h1><br><br>
 <h2><font color="#2c7873">ServiceManager启动</font><br></h2><br>
 发生在init.rc中,重启会导致其他系统服务一起重启(zygote, media, surfacefinger, drm)
 
