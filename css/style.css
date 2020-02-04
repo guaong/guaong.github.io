@@ -16,6 +16,8 @@ body,
   font-family: 'Lora', 'Times New Roman', serif;
 }
 .sans-serif,
+h1,
+h2,
 .navbar-custom,
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading,
@@ -38,28 +40,27 @@ li a {
   text-decoration: underline;
 }
 h1 {
-  color: #9d2933;
   font-weight: 800;
 }
 h2 {
+  color: #9d2933;
+  font-weight: 800;
+}
+h3 {
   color: #ff8936;
   font-weight: 700;
 }
-h3 {
+h4 {
   color: #ffc64b;
   font-weight: 600;
 }
-h4 {
+h5 {
   color: #21a675;
   font-weight: 500;
 }
-h5 {
+h6 {
   color: #1685a9;
   font-weight: 400;
-}
-h6 {
-  color: #815476;
-  font-weight: 300;
 }
 a {
   color: #404040;
