@@ -1,3 +1,26 @@
+article .container .row h1 {
+  color: #f05654;
+  font-weight: 800;
+}
+article .container .row h2 {
+  color: #e29c45;
+  font-weight: 700;
+}
+article .container .row h3 {
+  color: #057748;
+  font-weight: 600;
+}
+article .container .row h4 {
+  color: #1685a9;
+  font-weight: 500;
+}
+article .container .row h5 {
+  color: #725e82;
+  font-weight: 400;
+}
+article .container .row h6 {
+  color: #88ada6;
+}
 article .container .row img {
   max-width: 100% !important;
   height: auto;
