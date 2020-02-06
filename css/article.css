@@ -1,25 +1,32 @@
 article .container .row h1 {
   color: #f05654;
   font-weight: 800;
+  font-size: 60px;
 }
 article .container .row h2 {
   color: #e29c45;
-  font-weight: 700;
+  font-weight: 750;
+  font-size: 55px;
 }
 article .container .row h3 {
   color: #057748;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 50px;
 }
 article .container .row h4 {
   color: #1685a9;
-  font-weight: 500;
+  font-weight: 650;
+  font-size: 45px;
 }
 article .container .row h5 {
   color: #725e82;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 40px;
 }
 article .container .row h6 {
   color: #88ada6;
+  font-weight: 600;
+  font-size: 35px;
 }
 article .container .row img {
   max-width: 100% !important;
