@@ -32,9 +32,10 @@ h6,
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 body {
-  font-size: 10px;
+  font-size: 15px;
   color: #404040;
-  font-weight: 400;
+  font-weight: 550;
+  font-family: "Times";
 }
 p {
   line-height: 1.5;
