@@ -29,7 +29,8 @@ article .container .row h6 {
   font-weight: 550;
 }
 article .container font-family "Times" img {
-  max-width: 50%;
+  max-width: 100% !important;
+  width: 50%;
   height: auto;
   display: inline-block;
 }
