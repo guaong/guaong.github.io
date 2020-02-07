@@ -1,3 +1,6 @@
+article .container .row {
+  font-family: "Times";
+}
 article .container .row h1 {
   color: #ee827c;
   font-weight: 800;
@@ -28,21 +31,21 @@ article .container .row h6 {
   font-size: 15px;
   font-weight: 550;
 }
-article .container font-family "Times" img {
-  width: 100%;
+article .container .row img {
+  max-width: 100% !important;
   height: auto;
   display: inline-block;
 }
-article .container font-family "Times" .video-container {
+article .container .row .video-container {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
   height: 0;
   overflow: hidden;
 }
-article .container font-family "Times" .video-container iframe,
-article .container font-family "Times" .video-container object,
-article .container font-family "Times" .video-container embed {
+article .container .row .video-container iframe,
+article .container .row .video-container object,
+article .container .row .video-container embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,26 +53,26 @@ article .container font-family "Times" .video-container embed {
   height: 100%;
   margin-top: 0;
 }
-article .container font-family "Times" blockquote {
+article .container .row blockquote {
   font-style: italic;
   font-family: font-serif;
   font-size: 1.2em;
   padding: 0 30px 15px;
   text-align: center;
 }
-article .container font-family "Times" blockquote footer {
+article .container .row blockquote footer {
   border-top: none;
   font-size: 0.8em;
   line-height: 1;
   margin: 20px 0 0;
   padding-top: 0;
 }
-article .container font-family "Times" blockquote footer cite:before {
+article .container .row blockquote footer cite:before {
   content: '—';
   color: #ccc;
   padding: 0 0.5em;
 }
-article .container font-family "Times" .pullquote {
+article .container .row .pullquote {
   float: right;
   border: none;
   padding: 0;
@@ -78,7 +81,7 @@ article .container font-family "Times" .pullquote {
   width: 45%;
   font-size: 1.5em;
 }
-article .container font-family "Times" .pullquote.left {
+article .container .row .pullquote.left {
   float: left;
 }
 figure.highlight {
