@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="写在前面:笔记根据《深入理解android内核设计思想》记录
+
+
+
+一个Activity的启动归根结底时要ActivityThread中的handleLaunchActivity()方法,而在该方法中主要就是performLaunchActivity()
+
+123456789101112131415"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Guaong"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android中的View"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="写在前面:笔记根据《深入理解android内核设计思想》记录
+
+
+
+一个Activity的启动归根结底时要ActivityThread中的handleLaunchActivity()方法,而在该方法中主要就是performLaunchActivity()
+
+123456789101112131415"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Guaong"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://guaong.github.io/guaong.github.iohttps://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://guaong.github.io/guaong.github.iohttps://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Android中的View - Guaong</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/guaong.github.io/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/guaong.github.io/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/guaong.github.io/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/guaong" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Android中的View</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-09
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>写在前面:笔记根据《深入理解android内核设计思想》记录<br></p>
+<hr>
+<br>
+<h1></h1><br>
+一个Activity的启动归根结底时要<h6>ActivityThread</h6>中的<h6>handleLaunchActivity()</h6>方法,而在该方法中主要就是<h6>performLaunchActivity()</h6>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public final class ActivityThread extends ClientTransactionHandler &#123;</span><br><span class="line"> 	&#x2F;**</span><br><span class="line">     * Extended implementation of activity launch. Used when server requests a launch or relaunch.</span><br><span class="line">     * activity启动的实现,当server要求启动或重启时使用</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Activity handleLaunchActivity(ActivityClientRecord r,</span><br><span class="line">            PendingTransactionActions pendingActions, Intent customIntent) &#123;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; 启动activity</span><br><span class="line">		final Activity a &#x3D; performLaunchActivity(r, customIntent);</span><br><span class="line"></span><br><span class="line">        if (a !&#x3D; null) &#123;</span><br><span class="line">            r.createdConfig &#x3D; new Configuration(mConfiguration);</span><br><span class="line">            reportSizeConfigurations(r);</span><br><span class="line">            if (!r.activity.mFinished &amp;&amp; pendingActions !&#x3D; null) &#123;</span><br><span class="line">                pendingActions.setOldState(r.state);</span><br><span class="line">                pendingActions.setRestoreInstanceState(true);</span><br><span class="line">                pendingActions.setCallOnPostCreate(true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            &#x2F;&#x2F; If there was an error, for any reason, tell the activity manager to stop us.</span><br><span class="line">            try &#123;</span><br><span class="line">                ActivityManager.getService()</span><br><span class="line">                        .finishActivity(r.token, Activity.RESULT_CANCELED, null,</span><br><span class="line">                                Activity.DONT_FINISH_TASK_WITH_ACTIVITY);</span><br><span class="line">            &#125; catch (RemoteException ex) &#123;</span><br><span class="line">                throw ex.rethrowFromSystemServer();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动</p><h6>Activity</h6>做了主要两步:1.<h6>Activity.attach()</h6>给<h6>Activity</h6>中的各种变量赋值;2.<h6>callActivityOnCreate()</h6>调用<h6>Activity</h6>中的<h6>onCreate()</h6>方法.<p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public final class ActivityThread extends ClientTransactionHandler &#123;</span><br><span class="line"></span><br><span class="line">	&#x2F;**  Core implementation of activity launch. *&#x2F;</span><br><span class="line">    private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) &#123;</span><br><span class="line">        </span><br><span class="line">        Activity activity &#x3D; null;</span><br><span class="line">        try &#123;</span><br><span class="line">            if (activity !&#x3D; null) &#123;</span><br><span class="line">                Window window &#x3D; null;</span><br><span class="line">                &#x2F;&#x2F; 给activity中的属性赋值</span><br><span class="line">		        activity.attach(appContext, this, getInstrumentation(), r.token,</span><br><span class="line">                        r.ident, app, r.intent, r.activityInfo, title, r.parent,</span><br><span class="line">                        r.embeddedID, r.lastNonConfigurationInstances, config,</span><br><span class="line">                        r.referrer, r.voiceInteractor, window, r.configCallback);</span><br><span class="line"></span><br><span class="line">	         	&#x2F;&#x2F; 调用Activity中的onCreate()方法</span><br><span class="line">                if (r.isPersistable()) &#123;</span><br><span class="line">                    mInstrumentation.callActivityOnCreate(activity, r.state, r.persistentState);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    mInstrumentation.callActivityOnCreate(activity, r.state);</span><br><span class="line">                &#125;</span><br><span class="line">                if (!activity.mCalled) &#123;</span><br><span class="line">                    throw new SuperNotCalledException(</span><br><span class="line">                        &quot;Activity &quot; + r.intent.getComponent().toShortString() +</span><br><span class="line">                        &quot; did not call through to super.onCreate()&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                r.activity &#x3D; activity;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        return activity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p><h2>attach()给Activity中的变量赋值</h2><br><p></p>
+<h6>Activity</h6>中的变量有很多,暂时这里只看<h6>mWindow</h6>这一个.从下面地代码可以看到<h6>mWindow = new PhoneWindow(this, window, activityConfigCallback)</h6>,这说明一个Activity对应一个PhoneWindow对象.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Activity&#123;</span><br><span class="line">	final void attach(Context context, ActivityThread aThread,</span><br><span class="line">            Instrumentation instr, IBinder token, int ident,</span><br><span class="line">            Application application, Intent intent, ActivityInfo info,</span><br><span class="line">            CharSequence title, Activity parent, String id,</span><br><span class="line">            NonConfigurationInstances lastNonConfigurationInstances,</span><br><span class="line">            Configuration config, String referrer, IVoiceInteractor voiceInteractor,</span><br><span class="line">            Window window, ActivityConfigCallback activityConfigCallback) &#123;</span><br><span class="line"></span><br><span class="line">		mWindow &#x3D; new PhoneWindow(this, window, activityConfigCallback);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class PhoneWindow &#123;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; This is the top-level view of the window, containing the window decor.</span><br><span class="line">	&#x2F;&#x2F; 这是窗口的顶层view，包含窗口装饰.</span><br><span class="line">    private DecorView mDecor;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; This is the view in which the window contents are placed. It is either</span><br><span class="line">    &#x2F;&#x2F; mDecor itself, or a child of mDecor where the contents go.</span><br><span class="line">    &#x2F;&#x2F; 这是放置窗口内容的view.</span><br><span class="line">    &#x2F;&#x2F; 它或是mDecor本身,或是mDecor的child</span><br><span class="line">    ViewGroup mContentParent;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">     * Constructor for main window of an activity.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public PhoneWindow(Context context, Window preservedWindow,</span><br><span class="line">            ActivityConfigCallback activityConfigCallback) &#123;</span><br><span class="line">        this(context);</span><br><span class="line">        &#x2F;&#x2F; Only main activity windows use decor context, all the other windows depend on whatever</span><br><span class="line">        &#x2F;&#x2F; context that was given to them.</span><br><span class="line">        mUseDecorContext &#x3D; true;</span><br><span class="line">        if (preservedWindow !&#x3D; null) &#123;</span><br><span class="line">            mDecor &#x3D; (DecorView) preservedWindow.getDecorView();</span><br><span class="line">            mElevation &#x3D; preservedWindow.getElevation();</span><br><span class="line">            mLoadElevation &#x3D; false;</span><br><span class="line">            mForceDecorInstall &#x3D; true;</span><br><span class="line">            &#x2F;&#x2F; If we&#39;re preserving window, carry over the app token from the preserved</span><br><span class="line">            &#x2F;&#x2F; window, as we&#39;ll be skipping the addView in handleResumeActivity(), and</span><br><span class="line">            &#x2F;&#x2F; the token will not be updated as for a new window.</span><br><span class="line">            getAttributes().token &#x3D; preservedWindow.getAttributes().token;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; Even though the device doesn&#39;t support picture-in-picture mode,</span><br><span class="line">        &#x2F;&#x2F; an user can force using it through developer options.</span><br><span class="line">        boolean forceResizable &#x3D; Settings.Global.getInt(context.getContentResolver(),</span><br><span class="line">                DEVELOPMENT_FORCE_RESIZABLE_ACTIVITIES, 0) !&#x3D; 0;</span><br><span class="line">        mSupportsPictureInPicture &#x3D; forceResizable || context.getPackageManager().hasSystemFeature(</span><br><span class="line">                PackageManager.FEATURE_PICTURE_IN_PICTURE);</span><br><span class="line">        mActivityConfigCallback &#x3D; activityConfigCallback;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p><h2>调用onCreate()中的setContentView()</h2><br><p></p>
+<h6>getWindow()</h6>就是上面<h6>atach()</h6>中创建的<h6>PhoneWindow</h6>对象<h6>mWindow</h6>,所以最终调用的是<h6>PhoneWindow.setContentView()</h6>.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Activity&#123;</span><br><span class="line">	public void setContentView(@LayoutRes int layoutResID) &#123;</span><br><span class="line">        getWindow().setContentView(layoutResID);</span><br><span class="line">        initWindowDecorActionBar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Activity&#123;</span><br><span class="line">	&#x2F;**</span><br><span class="line">     * Retrieve the current &#123;@link android.view.Window&#125; for the activity.</span><br><span class="line">     * This can be used to directly access parts of the Window API that</span><br><span class="line">     * are not available through Activity&#x2F;Screen.</span><br><span class="line">     *</span><br><span class="line">     * @return Window The current window, or null if the activity is not</span><br><span class="line">     *         visual.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Window getWindow() &#123;</span><br><span class="line">        return mWindow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6>setContentView()</h6>中执行了<h6>installDecor()</h6>产生了一个<h6>DecorView</h6>对象.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class PhoneWindow &#123;</span><br><span class="line">	@Override</span><br><span class="line">    public void setContentView(int layoutResID) &#123;</span><br><span class="line">        &#x2F;&#x2F; Note: FEATURE_CONTENT_TRANSITIONS may be set in the process of installing the window</span><br><span class="line">        &#x2F;&#x2F; decor, when theme attributes and the like are crystalized. Do not check the feature</span><br><span class="line">        &#x2F;&#x2F; before this happens.</span><br><span class="line">        if (mContentParent &#x3D;&#x3D; null) &#123;</span><br><span class="line">	     	installDecor(); &#x2F;&#x2F; </span><br><span class="line">        &#125; else if (!hasFeature(FEATURE_CONTENT_TRANSITIONS)) &#123;</span><br><span class="line">            mContentParent.removeAllViews();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (hasFeature(FEATURE_CONTENT_TRANSITIONS)) &#123;</span><br><span class="line">            final Scene newScene &#x3D; Scene.getSceneForLayout(mContentParent, layoutResID,</span><br><span class="line">                    getContext());</span><br><span class="line">            transitionTo(newScene);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            mLayoutInflater.inflate(layoutResID, mContentParent); &#x2F;&#x2F; 创建View对象</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class PhoneWindow&#123;</span><br><span class="line">	private void installDecor() &#123;</span><br><span class="line">        mForceDecorInstall &#x3D; false;</span><br><span class="line">        &#x2F;&#x2F; 在上面Activity.attach()方法中传入的window可能不为空,</span><br><span class="line">        &#x2F;&#x2F; 所以会通过preservedWindow.getDecorView()获得</span><br><span class="line">        if (mDecor &#x3D;&#x3D; null) &#123;</span><br><span class="line">        	&#x2F;&#x2F; 创建一个BecorView对象,并且会把当前PhoneWindow传入BecorView中</span><br><span class="line">            mDecor &#x3D; generateDecor(-1); </span><br><span class="line">            mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);</span><br><span class="line">            mDecor.setIsRootNamespace(true);</span><br><span class="line">            if (!mInvalidatePanelMenuPosted &amp;&amp; mInvalidatePanelMenuFeatures !&#x3D; 0) &#123;</span><br><span class="line">                mDecor.postOnAnimation(mInvalidatePanelMenuRunnable);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            mDecor.setWindow(this);</span><br><span class="line">        &#125;</span><br><span class="line">        if (mContentParent &#x3D;&#x3D; null) &#123;</span><br><span class="line">	     	mContentParent &#x3D; generateLayout(mDecor); &#x2F;&#x2F; 给BecorView中添加各种资源</span><br><span class="line">		&#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class PhoneWindow&#123;	</span><br><span class="line">	protected ViewGroup generateLayout(DecorView decor) &#123;</span><br><span class="line">       </span><br><span class="line">        &#x2F;&#x2F; 加载资源</span><br><span class="line">		mDecor.onResourcesLoaded(mLayoutInflater, layoutResource);</span><br><span class="line"></span><br><span class="line">        ViewGroup contentParent &#x3D; (ViewGroup)findViewById(ID_ANDROID_CONTENT);</span><br><span class="line">        if (contentParent &#x3D;&#x3D; null) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;Window couldn&#39;t find content container view&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if ((features &amp; (1 &lt;&lt; FEATURE_INDETERMINATE_PROGRESS)) !&#x3D; 0) &#123;</span><br><span class="line">            ProgressBar progress &#x3D; getCircularProgressBar(false);</span><br><span class="line">            if (progress !&#x3D; null) &#123;</span><br><span class="line">                progress.setIndeterminate(true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if ((features &amp; (1 &lt;&lt; FEATURE_SWIPE_TO_DISMISS)) !&#x3D; 0) &#123;</span><br><span class="line">            registerSwipeCallbacks(contentParent);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mDecor.finishChanging();</span><br><span class="line"></span><br><span class="line">        return contentParent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class DecorView extends FrameLayout&#123;</span><br><span class="line">	void onResourcesLoaded(LayoutInflater inflater, int layoutResource) &#123;</span><br><span class="line">        if (mBackdropFrameRenderer !&#x3D; null) &#123;</span><br><span class="line">            loadBackgroundDrawablesIfNeeded();</span><br><span class="line">            mBackdropFrameRenderer.onResourcesLoaded(</span><br><span class="line">                    this, mResizingBackgroundDrawable, mCaptionBackgroundDrawable,</span><br><span class="line">                    mUserCaptionBackgroundDrawable, getCurrentColor(mStatusColorViewState),</span><br><span class="line">                    getCurrentColor(mNavigationColorViewState));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mDecorCaptionView &#x3D; createDecorCaptionView(inflater);</span><br><span class="line">        final View root &#x3D; inflater.inflate(layoutResource, null);</span><br><span class="line">        if (mDecorCaptionView !&#x3D; null) &#123;</span><br><span class="line">            if (mDecorCaptionView.getParent() &#x3D;&#x3D; null) &#123;</span><br><span class="line">                addView(mDecorCaptionView,</span><br><span class="line">                        new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));</span><br><span class="line">            &#125;</span><br><span class="line">            mDecorCaptionView.addView(root,</span><br><span class="line">                    new ViewGroup.MarginLayoutParams(MATCH_PARENT, MATCH_PARENT));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; Put it below the color views.</span><br><span class="line">            addView(root, 0, new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));</span><br><span class="line">        &#125;</span><br><span class="line">        mContentRoot &#x3D; (ViewGroup) root;</span><br><span class="line">        initializeElevation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/guaong" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Guaong<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
