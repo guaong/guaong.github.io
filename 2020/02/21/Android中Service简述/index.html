@@ -13,6 +13,13 @@
     
 
     
+        <meta name="description" content="Service是后台运行时使用的,与Activity不同,Service运行不需要前台页面的操作.
+
+Service启动前的准备
+准备工作主要是在AndroidManifest.xml中注册Service.
+
+12345678910111213141516171819&amp;lt;?xml version"/>
+    
 
     <!--Author-->
     
@@ -21,10 +28,17 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="Android中Service简述"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Service是后台运行时使用的,与Activity不同,Service运行不需要前台页面的操作.
+
+Service启动前的准备
+准备工作主要是在AndroidManifest.xml中注册Service.
+
+12345678910111213141516171819&amp;lt;?xml version"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +46,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +65,7 @@
 
     <!-- Title -->
     
-    <title>Guaong</title>
+    <title>Android中Service简述 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -156,188 +170,78 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('https://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Guaong</h1>
-                    <hr class="small">
-                    <span class="subheading">welcome to my blog</span>
+                <div class="post-heading">
+                    <h1>Android中Service简述</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-21
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/21/Android中Service简述/">
-        <h2 class="post-title">
-            Android中Service简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-21
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/21/Android中Activity简述/">
-        <h2 class="post-title">
-            Android中Activity简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-21
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/16/Android进程通信Binder/">
-        <h2 class="post-title">
-            Android进程通信Binder
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-16
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/09/Android中的View/">
-        <h2 class="post-title">
-            Android中的View
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-09
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/30/Android进程(线程)管理/">
-        <h2 class="post-title">
-            Android进程(线程)管理
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/10/关于android/">
-        <h2 class="post-title">
-            关于android
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/02/关于SpringToolSuite使用/">
-        <h2 class="post-title">
-            关于SpringToolSuite使用
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/01/用Python简单连接MySQL数据库/">
-        <h2 class="post-title">
-            用Python简单连接MySQL数据库
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-01
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2019/12/26/用Python简单爬取bilibili视频链接/">
-        <h2 class="post-title">
-            用Python简单爬取bilibili视频链接
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2019-12-26
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2019/12/23/新开始/">
-        <h2 class="post-title">
-            新开始
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2019-12-23
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/Android/">#Android</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/guaong.github.io/page/2/">Older Posts  &rarr;</a></li>
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Service是后台运行时使用的,与Activity不同,Service运行不需要前台页面的操作.</p>
+<hr>
+<h1>Service启动前的准备</h1>
+准备工作主要是在AndroidManifest.xml中注册Service.
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    package&#x3D;&quot;io.guaong.myapplication&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application</span><br><span class="line">       ......</span><br><span class="line">        &lt;activity android:name&#x3D;&quot;.MainActivity&quot;</span><br><span class="line">            android:launchMode&#x3D;&quot;singleInstance&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;intent-filter&gt;</span><br><span class="line">        &lt;&#x2F;activity&gt;</span><br><span class="line"></span><br><span class="line">        &lt;service android:name&#x3D;&quot;.MyService&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;application&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p><h1>Service的启动模式</h1><br><br>Service启动模式有两种:<br>1.startService()<br>2.bindService()<br><br><h2>startService()</h2><br><br>会调用onCreate()-&gt;onStartCommand()-&gt;onDestroy()<br><br><h2>binderService()</h2><br><br>会调用onCreate()-&gt;onBind()-&gt;( onRebind()&lt;- )onUnbind()-&gt;onDestroy()<br>注:<br>1.bindService()会使调用者与Service绑定,调用者销毁,Service一起销毁.<br>2.startService()不进行绑定,Service终止与调用者销毁无关.<br>3.两个方法可以同时使用,保证既一直运行在后台又可以与调用者联系.<p></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
