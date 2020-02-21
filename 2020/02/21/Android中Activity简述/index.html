@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Activity启动前的准备
+准备工作主要是在AndroidManifest.xml中(不考虑加载布局)
+设置一个Activity为程序打开时启动的第一个Activity
+
+12345678910111213141516171819&amp;lt;manifest xmlns:android&amp;#x3D;&amp;q"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Guaong"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android中Activity简述"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Activity启动前的准备
+准备工作主要是在AndroidManifest.xml中(不考虑加载布局)
+设置一个Activity为程序打开时启动的第一个Activity
+
+12345678910111213141516171819&amp;lt;manifest xmlns:android&amp;#x3D;&amp;q"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Guaong"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://guaong.github.io/guaong.github.iohttps://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://guaong.github.io/guaong.github.iohttps://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Android中Activity简述 - Guaong</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/guaong.github.io/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/guaong.github.io/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/guaong.github.io/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/guaong.github.io/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/guaong" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('https://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Android中Activity简述</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-21
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/Android/">#Android</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>Activity启动前的准备</h1>
+准备工作主要是在AndroidManifest.xml中(不考虑加载布局)
+<br><h2>设置一个Activity为程序打开时启动的第一个Activity</h2><br>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    package&#x3D;&quot;io.guaong.myapplication&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application</span><br><span class="line">       	......</span><br><span class="line">       	&lt;!-- 将Activity注册 --&gt;</span><br><span class="line">        &lt;activity android:name&#x3D;&quot;.MainActivity&quot;&gt;</span><br><span class="line">        	&lt;!-- 并不是所以Activity都需要写 --&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">            	&lt;!-- 确定程序先启动哪个Activity --&gt;</span><br><span class="line">                &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!-- 和图标有关,没有则不显示图标,多个则显示多个图标 --&gt;</span><br><span class="line">                &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;intent-filter&gt;</span><br><span class="line">        &lt;&#x2F;activity&gt;</span><br><span class="line">    &lt;&#x2F;application&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p><h2>设置Activity的启动模式</h2><br><br>Android的启动模式有四种:<br>1.standard<br>2.singleInstance<br>3.singleTop<br>4.singleTask<p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    package&#x3D;&quot;io.guaong.myapplication&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application</span><br><span class="line">       ......</span><br><span class="line">		&lt;!-- 默认是standard,可不写 --&gt;</span><br><span class="line">        &lt;activity android:name&#x3D;&quot;.MainActivity&quot;</span><br><span class="line">            android:launchMode&#x3D;&quot;standard&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;intent-filter&gt;</span><br><span class="line">        &lt;&#x2F;activity&gt;</span><br><span class="line">    &lt;&#x2F;application&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;manifest&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p><h3>standard</h3><br><br>启动一个Activity就压入栈中,即使该Activity已经启动过一个了.<br><br><h3>singleTop</h3><br><br>是在standard的基础上增加一个限制,就是如果一个Activity已经启动且在栈顶,那么再次启动这个Activity时则不需要新入栈一个,如果不是这种情况同standard.即栈中相邻的Activity一定不是同一个Activity.<br><br><h3>singleTask</h3><br><br>singleTask在singleTop基础上在做限制,如果一个Activity已经在栈中,再次启动这个Activity,首先不会新入栈一个,其次还要把栈中的这个Activity上面的其他Activity全部销毁,使其在栈顶.<br><br><h3>singleInstance</h3><br><br>根据命名可以看出如果一个Activity是singleInstance,那么这个Activity加入一个新栈,且这个栈不允许其他Activity加入.<br>ps.四种启动模式只针对单个Activity,在一个程序中有多个Activity,每个Activity的启动模式可以不相同.每个Activity在启动时会根据模式的不同对栈做出不同的操作.<br><br><h1>Activity的生命周期</h1><br><br>准备工作做好后,程序根据AndroidManifest.xml启动Activity.<br>启动后的Activity的生命周期分为:<br>1.onCreate()<br>2.onStart()<br>3.onResume()<br>4.onPause()<br>5.onStop()<br>6.onRestart()<br>7.onDestroy()<br><br><h2>onCreate()</h2><br><br>初始化一些操作,比如加载布局;初始化组件等.在Activity中onCreate()中的实现是开发时最常用的.(此时界面不可见)<br><br><h2>onStart()</h2><br><br>初始化后启动时调用,会视情况紧接着调用onResume()或onStop()(此时界面可见,但是不能操作)<br><br><h2>onResume()</h2><br><br>界面在前台且处于可操作时调用(此时界面可见)<br><br><h2>onPause()</h2><br><br>界面可见但是已经没有焦点时调用(此时界面可见,但是不能操作)<br><br><h2>onStop()</h2><br><br>一个新的Activity启动后变成不可见状态时调用.<br><br><h2>onRestart()</h2><br>在Activity执行onStop()后,重新到栈顶时调用.(ps.如果该Activity被系统杀死,那么就要执行onCreate(),而不是onRestart())<br><br><h2>onDestroy()</h2><br><br>Activity销毁时调用.<p></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/guaong" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Guaong<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
