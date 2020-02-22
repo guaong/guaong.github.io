@@ -13,6 +13,14 @@
     
 
     
+        <meta name="description" content="BroadcastReceiver用于接收系统的广播(网络变化等)和其他进程广播
+
+BroadcastReceiver的准备
+与其他三大组件不同,BroadcastReveiver的注册可以在AndroidManifest.xml中静态注册,也可以动态注册.
+静态注册
+
+123456&amp;lt;rece"/>
+    
 
     <!--Author-->
     
@@ -21,10 +29,18 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Guaong"/>
+        <meta property="og:title" content="Android中BroadcastReceiver简述"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="BroadcastReceiver用于接收系统的广播(网络变化等)和其他进程广播
+
+BroadcastReceiver的准备
+与其他三大组件不同,BroadcastReveiver的注册可以在AndroidManifest.xml中静态注册,也可以动态注册.
+静态注册
+
+123456&amp;lt;rece"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +48,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +67,7 @@
 
     <!-- Title -->
     
-    <title>Guaong</title>
+    <title>Android中BroadcastReceiver简述 - Guaong</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -156,188 +172,88 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('https://i.loli.net/2020/02/07/WyfPYiuTQZneb5N.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Guaong</h1>
-                    <hr class="small">
-                    <span class="subheading">welcome to my blog</span>
+                <div class="post-heading">
+                    <h1>Android中BroadcastReceiver简述</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-22
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/22/Android中BroadcastReceiver简述/">
-        <h2 class="post-title">
-            Android中BroadcastReceiver简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/22/Android中ContentProvider简述/">
-        <h2 class="post-title">
-            Android中ContentProvider简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/21/Android中Service简述/">
-        <h2 class="post-title">
-            Android中Service简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-21
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/21/Android中Activity简述/">
-        <h2 class="post-title">
-            Android中Activity简述
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-21
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/16/Android进程通信Binder/">
-        <h2 class="post-title">
-            Android进程通信Binder
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-16
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/02/09/Android中的View/">
-        <h2 class="post-title">
-            Android中的View
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-02-09
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/30/Android进程(线程)管理/">
-        <h2 class="post-title">
-            Android进程(线程)管理
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/10/关于android/">
-        <h2 class="post-title">
-            关于android
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/02/关于SpringToolSuite使用/">
-        <h2 class="post-title">
-            关于SpringToolSuite使用
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/guaong.github.io/2020/01/01/用Python简单连接MySQL数据库/">
-        <h2 class="post-title">
-            用Python简单连接MySQL数据库
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2020-01-01
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/guaong.github.io/tags/Android/">#Android</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/guaong.github.io/page/2/">Older Posts  &rarr;</a></li>
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>BroadcastReceiver用于接收系统的广播(网络变化等)和其他进程广播</p>
+<hr>
+<h1>BroadcastReceiver的准备</h1>
+与其他三大组件不同,BroadcastReveiver的注册可以在AndroidManifest.xml中静态注册,也可以动态注册.
+<h2>静态注册</h2>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">"io.guaong.MyReceiver"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 以网络变化监听为例 --&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.net.conn.CONNECTIVITY_CHANGE"</span> /&gt;</span> </span><br><span class="line"> 	<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2>动态注册</h2>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line">intentFilter.addAction(<span class="string">"android.net.conn.CONNECTIVITY_CHANGE"</span>);</span><br><span class="line">NyReceiver receiver = <span class="keyword">new</span> MyReceiver();</span><br><span class="line">registerReceiver(receiver, intentFilter);</span><br></pre></td></tr></table></figure>
+<p>ps.动态注册会与组件生命周期有关,需要在组件销毁时执行unregisterReceiver(receiver)</p>
+<h2>实现BroadcastReceiver</h2>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">		......</span><br><span class="line">		<span class="comment">// 在有广播到达时调用</span></span><br><span class="line">		<span class="comment">// 根据需求实现,最好不要有耗时操作</span></span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>发送广播</h1>
+不仅系统可以发送广播,其他app也可以发送广播
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.TEST_BROADCAST"</span>);</span><br><span class="line">   intent.putExtra(<span class="string">"key"</span>, <span class="string">"test"</span>);</span><br><span class="line">   <span class="comment">// sendBoradcast()来自ContextWrapper</span></span><br><span class="line">   <span class="comment">// 所以Activity,Service都能用</span></span><br><span class="line">   sendBroadcast(intent);</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
